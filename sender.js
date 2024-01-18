@@ -146,7 +146,7 @@ var ready = function () {
 
         "\nإضافات: " + message;
 };
-console.log(userName);
+
 var sender = function () {
     ready();
     var settings = {
