@@ -166,6 +166,14 @@ var sender = function () {
     
     $.ajax(settings).done(function (response) {
         console.log(response);
+         // Check if the response indicates success
+        if (response.ok) {
+            // Show a success popup to the user
+            showPopup("تم الإرسال", "success");
+        } else {
+            // Show an error popup to the user
+            showPopup("خطأ في الإرسال", "error");
+        }
     });
 
     document.getElementById("name").value = "";
@@ -229,3 +237,13 @@ var sender = function () {
 
     return false;
 };
+
+// Function to show a modern popup using SweetAlert2
+function showPopup(message, type) {
+    Swal.fire({
+        title: message,
+        icon: type,
+        timer: 5000, // Auto-close after 5 seconds
+        showConfirmButton: false
+    });
+}
